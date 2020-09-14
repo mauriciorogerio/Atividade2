@@ -16,13 +16,13 @@ public class ContratoService {
 
         for (int i = 1; i <= meses; i++) {
 
-            // double juros = parcela + pagamentoOnline.juros(parcela, i);
-            // double taxa = parcela + pagamentoOnline.taxaDePagamento(valor);
+             double juros = parcela + pagamentoOnline.juros(parcela, i);
+             double valorTotal = juros + pagamentoOnline.taxaDePagamento(juros);
 
             Date data = adMouths(contrato.getDataContrato(), i);
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             String dataFormatada = sdf.format(data);
-            System.out.println("Valor da parcela: " + parcela + " Vencimento: " + dataFormatada);
+            System.out.println("Valor da parcela: " + valorTotal + " Vencimento: " + dataFormatada);
         }
     }
 
